@@ -1,14 +1,12 @@
 from itertools import permutations
-s1 = "357 347 12567 26 13 34 123"
-s2 = "AC BDF ADG EDF DG ACEGF BD"
+s1 = '457 346 24 123 167 257 156'
+s2 = 'БВ АВД БГК ДГЕ КГВ АБЕ ДКЕ'
 s2 = {frozenset(x) for x in s2.split()}
-p = permutations("ABCDEFG")
-print(1,2,3,4,5,6,7)
-for x in p:
+print("1 2 3 4 5 6 7")
+for p in permutations("АБВГДЕК"):
     s3 = s1
-    for i in zip("1234567", x):
-        a, b = i
-        s3 = s3.replace(a, b)
+    for x, y in zip("1234567", p):
+        s3 = s3.replace(x, y)
     s3 = {frozenset(x) for x in s3.split()}
     if s3 == s2:
-        print(*x)
+        print(*p)
